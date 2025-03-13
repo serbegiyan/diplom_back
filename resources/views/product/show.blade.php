@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">{{ $product->name }}</h1>
                         <div class="row">
-                            <a class="btn btn-primary mt-2 ml-2" href="{{ route('product.edit', $product->id) }}">{{ $product->name }}</a>
+                            <a class="btn btn-primary mt-2 ml-2" href="{{ route('product.edit', $product->id) }}">Редактировать</a>
                             <form action="{{ route('product.delete', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -109,19 +109,19 @@
                                     <tr class="align-middle">
                                         <td>Изображения</td>
                                         @if($product->image->main_img_path !== null)
-                                            <td>Главное: <img style="height: 100px" src="{{ asset('storage/'.$product->image->main_img_path) }} "></td>
+                                            <td>Главное: <img alt="#" style="height: 100px" src="{{ asset('storage/'.$product->image->main_img_path) }} "></td>
                                         @endif
                                         @if($product->image->second_img_path !== null)
-                                            <td>Второе: <img style="height: 100px" src="{{ asset('storage/'.$product->image->second_img_path) }} "></td>
+                                            <td>Второе: <img alt="#" style="height: 100px" src="{{ asset('storage/'.$product->image->second_img_path) }} "></td>
                                         @endif
                                         @if($product->image->third_img_path !== null)
-                                            <td>Третье: <img style="height: 100px" src="{{ asset('storage/'.$product->image->third_img_path) }} "></td>
+                                            <td>Третье: <img alt="#" style="height: 100px" src="{{ asset('storage/'.$product->image->third_img_path) }} "></td>
                                         @endif
                                         @if($product->image->fourth_img_path !== null)
-                                            <td>Четвертое: <img style="height: 100px" src="{{ asset('storage/'.$product->image->fourth_img_path) }} "></td>
+                                            <td>Четвертое: <img alt="#" style="height: 100px" src="{{ asset('storage/'.$product->image->fourth_img_path) }} "></td>
                                         @endif
                                         @if($product->image->model_img_path !== null)
-                                            <td>Модельное: <img style="height: 100px" src="{{ asset('storage/'.$product->image->model_img_path) }} "></td>
+                                            <td>Модельное: <img alt="#" style="height: 100px" src="{{ asset('storage/'.$product->image->model_img_path) }} "></td>
                                         @endif
                                     </tr>
                                 </tbody>

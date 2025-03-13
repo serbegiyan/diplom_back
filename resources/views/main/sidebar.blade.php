@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('user.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     Пользователи
                 </a>
@@ -23,19 +23,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('order.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-shopping-bag"></i>
                     Заказы
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-comments"></i>
-                    Отзывы
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('article.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-newspaper"></i>
                     Статьи
                 </a>

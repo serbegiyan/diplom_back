@@ -14,6 +14,95 @@ class ProductFilter extends ModelFilter
     */
     public $relations = [];
 
+    public function season($value)
+    {
+        return $this->whereIn('season', $value);
+    }
+
+    public function type($value)
+    {
+        return $this->whereIn('type', $value);
+    }
+    public function sizeXS($value)
+    {
+        if ($value){
+            return $this->whereHas('size', function ($query) use ($value) {
+                $query->where('XS', '>', 0);
+            });
+        }
+    }
+    public function sizeS($value)
+    {
+        if ($value){
+            return $this->whereHas('size', function ($query) use ($value) {
+                $query->where('S', '>', 0);
+            });
+        }
+    }
+    public function sizeM($value)
+    {
+        if ($value){
+            return $this->whereHas('size', function ($query) use ($value) {
+                $query->where('M', '>', 0);
+            });
+        }
+    }
+    public function sizeL($value)
+    {
+        if ($value){
+            return $this->whereHas('size', function ($query) use ($value) {
+                $query->where('L', '>', 0);
+            });
+        }
+    }
+    public function sizeXL($value)
+    {
+        if ($value){
+            return $this->whereHas('size', function ($query) use ($value) {
+                $query->where('XL', '>', 0);
+            });
+        }
+    }
+    public function compositionCotton($value)
+    {
+        if ($value){
+            return $this->whereHas('composition', function ($query) use ($value) {
+                $query->where('cotton', '>', 0);
+            });
+        }
+    }
+    public function compositionViscose($value)
+    {
+        if ($value){
+            return $this->whereHas('composition', function ($query) use ($value) {
+                $query->where('viscose', '>', 0);
+            });
+        }
+    }
+    public function compositionElastane($value)
+    {
+        if ($value){
+            return $this->whereHas('composition', function ($query) use ($value) {
+                $query->where('elastane', '>', 0);
+            });
+        }
+    }
+    public function compositionWool($value)
+    {
+        if ($value){
+            return $this->whereHas('composition', function ($query) use ($value) {
+                $query->where('wool', '>', 0);
+            });
+        }
+    }
+    public function compositionPolyester($value)
+    {
+        if ($value){
+            return $this->whereHas('composition', function ($query) use ($value) {
+                $query->where('polyester', '>', 0);
+            });
+        }
+    }
     public function sorted($value)
     {
         switch ($value){

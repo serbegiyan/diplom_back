@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Продукты
+    Заказы
 @endsection
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -10,12 +10,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Продукты</h1>
+                    <h1 class="m-0">Заказы</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('main.index') }}">Главная</a></li>
-                        <li class="breadcrumb-item active">Продукты</li>
+                        <li class="breadcrumb-item active">Заказы</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -28,7 +28,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <a href="{{ route('product.create') }}" class="btn btn-primary mb-3 ml-2">Добавить</a>
+                <a href="{{ route('order.create') }}" class="btn btn-primary mb-3 ml-2">Добавить</a>
             </div>
                 <div>
                     <div>
@@ -38,31 +38,27 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px" class="text-center">id</th>
-                                    <th class="text-center">Превью</th>
-                                    <th class="text-center">Артикул</th>
-                                    <th class="text-center">Название</th>
-                                    <th class="text-center">Тип</th>
-                                    <th class="text-center">Пол</th>
-                                    <th class="text-center">Сезон</th>
-                                    <th class="text-center">Цена</th>
+                                    <th class="text-center">Имя покупателя</th>
+                                    <th class="text-center">Адрес доставки</th>
+                                    <th class="text-center">Телефон</th>
+                                    <th class="text-center">Итоговая цена</th>
+                                    <th class="text-center">Дата заказа</th>
                                     <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($products as $product)
+                                @foreach($orders as $order)
                                     <tr class="align-middle">
-                                        <td class="text-center">{{ $product->id }}</td>
-                                        <td><a href="{{ route('product.show', $product->id) }}"><img alt="#" style="height: 40px" class="ml-4" src="{{ asset('storage/'.$product->image->main_img_path) }}"></a></td>
-                                        <td class="text-center">{{ $product->article }}</td>
-                                        <td class="text-center">{{ $product->name }}</td>
-                                        <td class="text-center">{{ $product->type }}</td>
-                                        <td class="text-center">{{ $product->gender }}</td>
-                                        <td class="text-center">{{ $product->season }}</td>
-                                        <td class="text-center">{{ $product->price }}</td>
-                                        <td class="text-center"><a href="{{ route('product.show', $product->id) }}" title="Просмотреть"><i class="fas fa-eye"></i></a></td>
-                                        <td class="text-center"><a href="{{ route('product.edit', $product->id) }}" title="Редактировать"><i class="far fa-edit"></i></a></td>
+                                        <td class="text-center">{{ $order->id }}</td>
+                                        <td class="text-center"><a href="{{ route('order.show', $order->id) }}">{{ $order->name }}</a></td>
+                                        <td class="text-center">{{ $order->address }}</td>
+                                        <td class="text-center">{{ $order->phone }}</td>
+                                        <td class="text-center">{{ $order->total_price }}</td>
+                                        <td class="text-center">{{ $order->created_at }}</td>
+                                        <td class="text-center"><a href="{{ route('order.show', $order->id) }}" title="Просмотреть"><i class="fas fa-eye"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('order.edit', $order->id) }}" title="Редактировать"><i class="far fa-edit"></i></a></td>
                                         <td>
-                                            <form action="{{ route('product.delete', $product->id) }}" method="POST">
+                                            <form action="{{ route('order.delete', $order->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="text-danger border-0 bg-transparent text-center" type="submit" title="Удалить"><i class="fas fa-trash-alt"></i></button>

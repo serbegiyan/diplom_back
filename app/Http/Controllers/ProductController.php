@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends BaseController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $products = Product::filter($request->all())->get();
         return view('product.index', compact('products'));
     }
 

@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $guarded = false;
 
-    use softDeletes;
+    use SoftDeletes;
     use Filterable;
 
     public function composition()
