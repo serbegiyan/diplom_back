@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('admin')->middleware('auth')->group(function (){
+Route::middleware('auth')->group(function (){
     Route::get('/', [\App\Http\Controllers\Main\IndexController::class, 'index'])->name('main.index');
 
     Route::group(['prefix' => 'products'], function () {
